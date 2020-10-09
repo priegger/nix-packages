@@ -213,7 +213,7 @@ in
 
     security.acme.certs."${cfg.turn.hostName}" = mkIf (cfg.turn.enable) {
       group = "turnserver";
-      allowKeysForGroup = true;
+      allowKeysForGroup = mkIf (! versionAtLeast config.system.nixos.version "20.09") true;
       postRun = "systemctl reload nginx.service; systemctl restart coturn.service";
     };
 
