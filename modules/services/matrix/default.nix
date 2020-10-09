@@ -232,4 +232,6 @@ in
       ];
     };
   };
+
+  users.users.nginx.extraGroups = [ "matrix-synapse" "turnserver" ];
 }
