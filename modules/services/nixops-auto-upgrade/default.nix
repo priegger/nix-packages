@@ -4,7 +4,7 @@ with lib;
 let
   cfg = config.kampka.services.nixops-auto-upgrade;
 
-  configurationPath = builtins.path { name = "nixos-configuration"; path = cfg.configurationPath; };
+  configurationPath = builtins.path { name = "nixos-configuration"; path = cfg.configurationPath.path; };
 in
 {
 
