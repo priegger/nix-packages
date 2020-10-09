@@ -3,8 +3,6 @@
 with lib;
 let
   cfg = config.kampka.services.nixops-auto-upgrade;
-
-  configurationPath = builtins.path { name = "nixos-configuration"; path = cfg.configurationPath.path; };
 in
 {
 
@@ -78,7 +76,7 @@ in
         configuration = ''
           mkdir -p /etc/nixos/current/
           rm -f /etc/nixos/current/*
-          ln -sf ${configurationPath}/* /etc/nixos/current
+          ln -sf ${cfg.configurationPath}/* /etc/nixos/current
         '';
       };
 
