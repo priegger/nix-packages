@@ -231,7 +231,7 @@ in
         { from = cfg.turn.min-port; to = cfg.turn.max-port; } # TURN relay
       ];
     };
-  };
 
-  users.users.nginx.extraGroups = [ "matrix-synapse" "turnserver" ];
+    users.users.nginx.extraGroups = [ "matrix-synapse" "turnserver" ];
+  };
 }
