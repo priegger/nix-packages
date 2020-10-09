@@ -165,7 +165,7 @@ in
     # share certs with matrix-synapse and restart on renewal
     security.acme.certs."${cfg.matrix.hostName}" = {
       group = "matrix-synapse";
-      allowKeysForGroup = mkIf ! versionAtLeast config.system.nixos.version "20.09" true;
+      allowKeysForGroup = mkIf (! versionAtLeast config.system.nixos.version "20.09") true;
       postRun = "systemctl reload nginx.service; systemctl restart matrix-synapse.service";
     };
 
